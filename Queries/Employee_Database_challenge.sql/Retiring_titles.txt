@@ -1,0 +1,21 @@
+Option 1*
+select count(ut.title), ut.title
+INTO retiring_titles
+from unique_titles as ut
+group by ut.title
+order by count(ut.title) desc;
+
+*Option 1 retrieves infromation from 
+the table we created using the DISTINCT ON() clause
+
+Option 2**
+select count(rt.emp_no), rt.title
+INTO retiring_titles
+from retirement_titles as rt
+group by rt.title
+order by count(rt.title) desc;
+
+**Option 2 on the other hand, retrieves data from our 
+retirement_titles table, wich had the constraint 
+---> WHERE (t.to_date = '9999-01-01')
+wich eliminates al duplicates in the emp_no column.
