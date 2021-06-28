@@ -208,6 +208,7 @@ select di.emp_no, di.first_name, di.last_name, di.dept_name
 from dept_info as di
 where di.dept_name IN ('Sales', 'Development');
 
+--DELIVERABLE 1: Option 1
 select e.emp_no, e.first_name, e.last_name, t.title, t.from_date, t.to_date
 --into retirement_titles
 from employees as e
@@ -218,6 +219,7 @@ WHERE (e.birth_date BETWEEN '1952-01-01' AND '1955-12-31')
   and (t.to_date = '9999-01-01')
 order by e.emp_no;
 
+--DELIVERABLE 1: Option 2 
 select ce.emp_no, ce.first_name, ce.last_name, t.title, t.from_date, t.to_date
 into retirement_titles
 from current_emp as ce
@@ -245,17 +247,47 @@ drop table unique_titles cascade;
 select * from unique_titles;
 
 select count(rt.emp_no), rt.title
-INTO retiring_titles
+--INTO retiring_titles
 from retirement_titles as rt
 group by rt.title
 order by count(rt.title) desc;
 
 SELECT* FROM retiring_titles;
 
+select rt.emp_no, rt.first_name, rt.last_name, e.birth_date
+from retirement_titles as rt
+inner join employees as e
+on rt.emp_no = e.emp_no;
 
+select e.emp_no, e.first_name, e.last_name, e.birth_date, 
+       de.from_date, de.to_date, t.title
+into mentorship
+from employees as e
+inner join dept_emp as de
+on e.emp_no = de.emp_no
+inner join titles as t
+on e.emp_no = t.emp_no
+where (e.birth_date between '1965-01-01' and '1965-12-31')
+   and(t.to_date = '9999-01-01')
+order by e.emp_no;
+       
 
+SELECT DISTINCT ON (emp_no) emp_no,
+first_name,
+last_name,
+birth_date,
+from_date,
+to_date,
+title
+into mentorship_eligibility
+FROM mentorship
+ORDER BY emp_no, to_date DESC;
 
+drop table mentorship_eligibility cascade;
 
+select * from mentorship_eligibility;
+
+select * from unique_titles;
 
 
 
