@@ -11,7 +11,7 @@ And, in order to start off a mentorship program, aimed to train the future gener
 
 Based on six CSV files provided by the company, we'll create a set of lists that hold the employee's number, name and title (among other data) who meets certain criteria, that would include them in one of the groups named above.
 
-##Results
+## Results
  - Challenge --> Deliverable 1: While creating the retirement titles table, we are given this tables as reference:
  - <Img src="Images/retirement%20titles.png" width="650"> 
 
