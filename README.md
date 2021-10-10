@@ -28,22 +28,46 @@ To get the number of retirees by title, we have two options.
   
 Using the COUNT() function we will retrieve the number of employees by their most recent job title who are about to retire. The website shows us the next DataFrame as a reference of how our table should look like. 
   
-<Img src = "Images/demo%20retiring%20titles.png" width="650">
+<Img src = "Images/demo%20retiring%20titles.png" width="450">
  
 However, the sum of these numbers (90,398) doesn't match the values obtained on the current employee table (33,118). Using the current employees table as a reference we can corroborate this value.
  
-<Img src = "Images/current_emp.png" width="650">
+<Img src = "Images/current_emp.png" width="450">
  
- An accurate version of retiring titles table, would look like the following:
+ - An accurate version of retiring titles table, would look like the following:
  
- <Img src = "Images/retiring%20titles.png" width="650">
+ <Img src = "Images/retiring%20titles.png" width="450">
   
   
 ### Deliverable 2
-- The query (Mentorship_eligibility.txt) to create a mentorship eligibility  table, can be seen inside Employee_Database_challenge.sql file
-- Next, we cant see the first ten rows from our mentorship eligibility table
+The query (Mentorship_eligibility.txt) to create a mentorship eligibility  table, can be seen inside Employee_Database_challenge.sql file
+- Next, we can see the first ten rows from our mentorship eligibility table
  
   <Img src = "Images/mentorship_eligibility.png" width="650">
+   
+## Summary
+1. How many roles will need to be filled as the "silver tsunami" begins to make an impact? In total, 33,118 employees are part of the 'silver tsunami' that's coming to Pewlett-Hackard.
+<Img src = "Images/retiring%20titles.png" width="450">
+2. Are there enough qualified, retirement-ready employees in the departments to mentor the next generation of Pewlett Hackard employees?
+   
+ - First, we need to create a table that holds the number of mentors by title
+ <Img src = "Images/mentorship_titles.png" width="450">
+
+ - There are no managers selected to be mentors, and there will be two job openings in the future. 
+
+ - We'll make a new_mentorship table, by refactoring the code used in creating the mentorship table. Notice we altered only the birth date (1964 vs 1965, 4 months vs whole year)
+ <Img src = "Images/new_mentorship.png" width="550"> 
+
+ - Next we eliminate duplicates
+ <Img src = "Images/new_mentorship_eligibility.png" width="450"> 
+
+ - Now we cover all the areas and there are more mentors per position, thus aliviating the work load in training these youngbloods
+ <Img src = "Images/new_mentorship_titles.png" width="450"> 
+  
+  
+  
+  
+ 
   
   
   
